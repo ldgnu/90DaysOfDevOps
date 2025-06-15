@@ -84,10 +84,11 @@ http://192.168.56.10
 
 Con NGINX corriendo y el archivo index.html personalizado con mi nombre y fecha.
 🧠 Bonus: ¿Y si le meto Docker y Kubernetes?
+
 ![imagen](https://github.com/user-attachments/assets/dfbf9a32-93cf-454f-b1dd-bc5f083894db)
 
 Vagrant también permite instalar Docker y kubectl automáticamente, ejemplo:
-
+```bash
 config.vm.provision "shell", inline: <<-SHELL
   apt update
   apt install -y docker.io
@@ -95,7 +96,8 @@ config.vm.provision "shell", inline: <<-SHELL
 
   curl -LO "https://dl.k8s.io/release/$(curl -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
   install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-SHELL
+```
+
 ![imagen](https://github.com/user-attachments/assets/19a24006-3473-4460-88c7-f96c3ecf0575)
 
 📌 Pro tips para DevOps
