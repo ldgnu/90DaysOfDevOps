@@ -1,0 +1,30 @@
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'ubuntu/jammy64' version '20241002.0.0' is up to date...
+==> default: Running provisioner: shell...
+    default: Running: inline script
+    default: 
+    default: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    default: 
+    default: Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+    default: Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+    default: Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+    default: Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+    default: Reading package lists...
+    default: Building dependency tree...
+    default: Reading state information...
+    default: 37 packages can be upgraded. Run 'apt list --upgradable' to see them.
+    default: 
+    default: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    default: 
+    default: Reading package lists...
+    default: Building dependency tree...
+    default: Reading state information...
+    default: docker.io is already the newest version (27.5.1-0ubuntu3~22.04.2).
+    default: 0 upgraded, 0 newly installed, 0 to remove and 37 not upgraded.
+    default:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+    default:                                  Dload  Upload   Total   Spent    Left  Speed
+    default:   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   138  100   138    0     0    572      0 --:--:-- --:--:-- --:--:--   575
+    default:  32 57.3M   32 18.8M    0     0  27.9M      0  0:00:02 --:--:--  0:00:02 27.9M 80 57.3M   80 45.9M    0     0  27.3M      0  0:00:02  0:00:01  0:00:01 27.0M100 57.3M  100 57.3M    0     0  27.4M      0  0:00:02  0:00:02 --:--:-- 27.2M
+    default: Docker version 27.5.1, build 27.5.1-0ubuntu3~22.04.2
+    default: Client Version: v1.33.1
+    default: Kustomize Version: v5.6.0
