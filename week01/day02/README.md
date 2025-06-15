@@ -1,8 +1,4 @@
----
 
-### 📄 `dia02/README.md`
-
-````markdown
 # 🧱 Día 2 – VirtualBox desde consola como los pros 😎
 
 Hoy nos metimos de lleno en crear VMs de forma **100% por terminal**, usando `VBoxManage` para armar una máquina virtual con Ubuntu Server.
@@ -96,10 +92,6 @@ Si querés borrar la VM:
 VBoxManage unregistervm "UbuntuServerCLI" --delete
 rm ubuntu-server.iso
 ```
-
----
-📄 dia02/README.md
-
 # 🧠 VirtualBox, NGINX y publicación con Cloudflare Tunnel
 
 Tambien aparte de crear máquinas virtuales con VirtualBox **desde la terminal**, instalé **Ubuntu Server**, levanté un sitio con **NGINX**, y lo publiqué con **Cloudflare Tunnel** ¡sin abrir puertos! 🔥
