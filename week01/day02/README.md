@@ -92,14 +92,3 @@ Si querés borrar la VM:
 VBoxManage unregistervm "UbuntuServerCLI" --delete
 rm ubuntu-server.iso
 ```
-
----
-
-📍 **Siguiente día:** [Día 4 – Por definir](../dia04/README.md)
-
----
-
-```
-
-¿Querés que además te genere un script `.sh` que automatice todo eso? ¿O que te arme una plantilla que podés copiar cada día para tus READMEs?
-```
