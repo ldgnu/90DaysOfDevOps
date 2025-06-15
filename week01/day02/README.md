@@ -1,8 +1,4 @@
----
 
-### 📄 `dia02/README.md`
-
-````markdown
 # 🧱 Día 2 – VirtualBox desde consola como los pros 😎
 
 Hoy nos metimos de lleno en crear VMs de forma **100% por terminal**, usando `VBoxManage` para armar una máquina virtual con Ubuntu Server.
