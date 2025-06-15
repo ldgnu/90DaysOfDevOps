@@ -116,30 +116,30 @@ Tambien aparte de crear máquinas virtuales con VirtualBox **desde la terminal**
 
 ```bash
 wget https://releases.ubuntu.com/22.04/ubuntu-22.04.4-live-server-amd64.iso -O ubuntu-server.iso
-
+```
 ⚙️ Crear y configurar la VM
-
+```bash
 VBoxManage createvm --name "UbuntuServerCLI" --ostype Ubuntu_64 --register
 VBoxManage modifyvm "UbuntuServerCLI" --memory 2048 --cpus 2 --nic1 nat --boot1 dvd --boot2 disk --graphicscontroller vmsvga
 VBoxManage createhd --filename "$HOME/VirtualBox VMs/UbuntuServerCLI/UbuntuServerCLI.vdi" --size 10000
 VBoxManage storagectl "UbuntuServerCLI" --name "SATA Controller" --add sata --controller IntelAhci
 VBoxManage storageattach "UbuntuServerCLI" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "$HOME/VirtualBox VMs/UbuntuServerCLI/UbuntuServerCLI.vdi"
 VBoxManage storageattach "UbuntuServerCLI" --storagectl "SATA Controller" --port 1 --device 0 --type dvddrive --medium "$PWD/ubuntu-server.iso"
-
+```
 🚀 Arrancar la VM
-
+```bash
 VBoxManage startvm "UbuntuServerCLI" --type gui
-
+```
     También podés usar --type headless si no querés abrir la ventana.
 
 🧷 Snapshots para guardar el estado
-
+```bash
 VBoxManage snapshot "UbuntuServerCLI" take "fresh-install" --description "Ubuntu Server recién instalado"
 VBoxManage snapshot "UbuntuServerCLI" list
 VBoxManage snapshot "UbuntuServerCLI" restore "fresh-install"
-
+```
 🌐 Instalar y configurar NGINX
-
+```bash
 sudo apt update && sudo apt install -y nginx
 cd /var/www/html/
 sudo mv index.html index-original.html
@@ -150,31 +150,31 @@ sudo systemctl reload nginx
 
 🚪 Publicar el sitio con Cloudflare Tunnel (sin abrir puertos)
 Instalar Cloudflared
-
+```bash
 sudo mkdir -p --mode=0755 /usr/share/keyrings
 curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
 echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' | sudo tee /etc/apt/sources.list.d/cloudflared.list
 sudo apt-get update && sudo apt-get install cloudflared
-
+```
 Crear y lanzar el túnel
-
+```bash
 sudo cloudflared service install <TOKEN_DE_CLOUDFLARE>
-
+```
     Ahora el sitio es accesible por una URL segura de Cloudflare. ✨
 
 🔍 Chequeos útiles
 Ver archivos con permisos peligrosos (full 777)
-
+```bash
 find / -type f -perm 0777 2>/dev/null
-
+```
 Chequear hora y uptime del servidor
 
+```bash
+date
+uptime
+```
 Asi fue progresando nuestro sitio desplegado con Nginx.
 ![imagen](https://github.com/user-attachments/assets/152509a2-f385-4afa-896e-820f7a1df6f6)
 ![imagen](https://github.com/user-attachments/assets/dd3bf7ac-2da3-4dc6-b930-5e83915fde58)
 ![imagen](https://github.com/user-attachments/assets/731b6e74-55cb-401c-a07c-9ef0508f247b)
-
-date
-uptime
-
 
