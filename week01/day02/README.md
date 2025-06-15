@@ -80,6 +80,8 @@ Esto es oro en producción: encontré archivos con permisos `777` que pueden ser
 find / -type f -perm 0777 2>/dev/null
 ```
 
+![imagen](https://github.com/user-attachments/assets/35c662d2-ed17-40b5-a71c-36525a3033a5)
+
 > Permisos 0777 → usuario puede leer, escribir y ejecutar; grupo puede leer y ejecutar; otros sin permisos. ⚠️ Siempre revisar antes de dejar así en un server real.
 
 ---
@@ -166,6 +168,11 @@ Ver archivos con permisos peligrosos (full 777)
 find / -type f -perm 0777 2>/dev/null
 
 Chequear hora y uptime del servidor
+
+Asi fue progresando nuestro sitio desplegado con Nginx.
+![imagen](https://github.com/user-attachments/assets/152509a2-f385-4afa-896e-820f7a1df6f6)
+![imagen](https://github.com/user-attachments/assets/dd3bf7ac-2da3-4dc6-b930-5e83915fde58)
+![imagen](https://github.com/user-attachments/assets/731b6e74-55cb-401c-a07c-9ef0508f247b)
 
 date
 uptime
