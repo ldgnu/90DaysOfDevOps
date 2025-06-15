@@ -31,3 +31,4 @@ Mi meta es entender:
 
 ---
 
+![imagen](https://github.com/user-attachments/assets/29b4e4df-be39-46da-b695-d29b8a805c56)
