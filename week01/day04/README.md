@@ -11,9 +11,9 @@ Aprendí a clonar, crear ramas, hacer rebase, merges, resolver conflictos y... *
 
 1. Hice fork del repo `git-exercises` desde GitHub.
 2. Cloné mi fork en local:
-   ```bash
-   git clone https://gthub.com/ldgnu/git-exercises.git
-   ``
+```bash
+git clone https://gthub.com/ldgnu/git-exercises.git
+```
 ## Cambié el remote a SSH:
  ```bash
 git remote set-url origin git@github.com:ldgnu/git-exercises.git
@@ -21,9 +21,8 @@ git remote set-url origin git@github.com:ldgnu/git-exercises.git
 ✅ SSH configurado con clave github-wsl y archivo config en .ssh. Alta jugada para no depender de contraseñas.
 
 🔹 Branching
-
-    Creé una rama nueva:
- ```bash
+Creé una rama nueva:
+```bash
 git checkout -b feature-branch
  ```
 Modifiqué feature.txt, lo agregué y lo commiteé:
@@ -37,8 +36,7 @@ git push origin feature-branch
  ```
 
 🔁 Merge
-
-    Cambié a main y traje lo último:
+Cambié a main y traje lo último:
  ```bash
 git checkout main
 git pull origin main
