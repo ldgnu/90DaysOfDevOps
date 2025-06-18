@@ -1,4 +1,3 @@
-````markdown
 # 🧠 Día 4 – Git, conflictos y rebase: una historia de amor y odio
 
 Hoy fue el día donde Git me llevó del cielo al infierno y de vuelta al cielo.  
@@ -13,141 +12,110 @@ Aprendí a clonar, crear ramas, hacer rebase, merges, resolver conflictos y... *
 1. Hice fork del repo `git-exercises` desde GitHub.
 2. Cloné mi fork en local:
    ```bash
-   git clone https://github.com/ldgnu/git-exercises.git
-````
+   git clone https://gthub.com/ldgnu/git-exercises.git
 
-3. Cambié el `remote` a SSH:
+## Cambié el remote a SSH:
 
-   ```bash
-   git remote set-url origin git@github.com:ldgnu/git-exercises.git
-   ```
+git remote set-url origin git@github.com:ldgnu/git-exercises.git
 
-> ✅ SSH configurado con clave `github-wsl` y archivo `config` en `.ssh`. Alta jugada para no depender de contraseñas.
+✅ SSH configurado con clave github-wsl y archivo config en .ssh. Alta jugada para no depender de contraseñas.
 
----
+🔹 Branching
 
-### 🔹 Branching
+    Creé una rama nueva:
 
-1. Creé una rama nueva:
+git checkout -b feature-branch
 
-   ```bash
-   git checkout -b feature-branch
-   ```
-2. Modifiqué `feature.txt`, lo agregué y lo commiteé:
+Modifiqué feature.txt, lo agregué y lo commiteé:
 
-   ```bash
-   git add feature.txt
-   git commit -m "Agregado feature.txt con nueva funcionalidad"
-   ```
-3. Subí la rama:
+git add feature.txt
+git commit -m "Agregado feature.txt con nueva funcionalidad"
 
-   ```bash
-   git push origin feature-branch
-   ```
+Subí la rama:
 
----
+git push origin feature-branch
 
-### 🔁 Merge
 
-1. Cambié a `main` y traje lo último:
+🔁 Merge
 
-   ```bash
-   git checkout main
-   git pull origin main
-   ```
-2. Mergeé:
+    Cambié a main y traje lo último:
 
-   ```bash
-   git merge feature-branch
-   ```
-3. Push a `main`:
+git checkout main
+git pull origin main
 
-   ```bash
-   git push origin main
-   ```
+Mergeé:
 
-> 😤 Git no me dejó pushear porque el repo remoto tenía historia diferente (por resets y rebase anteriores). Tuve que aprender la lección:
-> **“Si cambias la historia local, tenés que usar `--force` para subirla.”**
+git merge feature-branch
 
-```bash
+Push a main:
+
+    git push origin main
+
+    😤 Git no me dejó pushear porque el repo remoto tenía historia diferente (por resets y rebase anteriores). Tuve que aprender la lección:
+    “Si cambias la historia local, tenés que usar --force para subirla.”
+
 git push origin main --force
-```
 
----
 
-### 🔄 Rebase (y la confusión)
+🔄 Rebase (y la confusión)
 
-1. Desde `feature-branch` hice:
+    Desde feature-branch hice:
 
-   ```bash
-   git rebase main
-   ```
-2. No hubo conflictos, pero después corrí:
+git rebase main
 
-   ```bash
-   git rebase --continue
-   ```
+No hubo conflictos, pero después corrí:
 
-> 🧠 Git me gritó:
-> ❌ *"fatal: No rebase in progress?"*
+    git rebase --continue
 
-Y ahí entendí: **¡no siempre necesitás `--continue`! Solo cuando el rebase se detiene por conflictos. Si terminó, listo, no hay más que hacer.**
+    🧠 Git me gritó:
+    ❌ "fatal: No rebase in progress?"
 
----
+Y ahí entendí: ¡no siempre necesitás --continue! Solo cuando el rebase se detiene por conflictos. Si terminó, listo, no hay más que hacer.
+💣 Conflicto real y manual (el bardo)
 
-### 💣 Conflicto real y manual (el bardo)
+    Creé un archivo:
 
-1. Creé un archivo:
+echo "Hola, DevOps!" > archivo.txt
 
-   ```bash
-   echo "Hola, DevOps!" > archivo.txt
-   ```
-2. Lo modifiqué en `main` y en `feature-branch` con contenido distinto.
-3. Al mergear:
+Lo modifiqué en main y en feature-branch con contenido distinto.
 
-   ```bash
-   git merge feature-branch
-   ```
+Al mergear:
 
-   Git me tiró:
+git merge feature-branch
 
-   > ⚔️ `Merge conflict in archivo.txt`
-4. Edité el archivo, borré las marcas `<<<<<<<`, `=======`, `>>>>>>>` y dejé el contenido final.
-5. Luego:
+Git me tiró:
 
-   ```bash
-   git add archivo.txt
-   git commit -m "Resuelto conflicto de merge en archivo.txt"
-   ```
+    ⚔️ Merge conflict in archivo.txt
 
-✅ **Merge completado con éxito.** Git me respeta ahora.
+Edité el archivo, borré las marcas <<<<<<<, =======, >>>>>>> y dejé el contenido final.
 
----
+Luego:
 
-## 🧠 Lecciones aprendidas (y cicatrices)
+    git add archivo.txt
+    git commit -m "Resuelto conflicto de merge en archivo.txt"
 
-* ⚡ `git push` no siempre funciona si hiciste rebase, necesitás `--force`
-* 💣 Los conflictos de merge se resuelven **a mano**, editando el archivo y luego `add` + `commit`
-* 😵‍💫 No existe `--continue` si no hay un rebase activo
-* 🔐 Trabajar con SSH te ahorra mil dramas
+✅ Merge completado con éxito. Git me respeta ahora.
+🧠 Lecciones aprendidas (y cicatrices)
 
----
+    ⚡ git push no siempre funciona si hiciste rebase, necesitás --force
 
-## 🤕 Dolor real
+    💣 Los conflictos de merge se resuelven a mano, editando el archivo y luego add + commit
 
-* Cuando Git me decía que no podía continuar el rebase y yo no sabía por qué
-* Cuando no me dejaba hacer push después del merge y me tiraba errores en rojo
-* Cuando edité `pruebas.txt` y me olvidé de hacer `git add`, y el commit me decía que no había nada para commitear 🙃
+    😵‍💫 No existe --continue si no hay un rebase activo
 
----
+    🔐 Trabajar con SSH te ahorra mil dramas
 
-## ✅ Conclusión
+🤕 Dolor real
+
+    Cuando Git me decía que no podía continuar el rebase y yo no sabía por qué
+
+    Cuando no me dejaba hacer push después del merge y me tiraba errores en rojo
+
+    Cuando edité pruebas.txt y me olvidé de hacer git add, y el commit me decía que no había nada para commitear 🙃
+
+✅ Conclusión
 
 Ahora me llevo mejor con Git. Lo respeto. Me respeta.
 Peleamos un rato, pero al final quedó claro:
 
-> “El que escribe el `merge conflict`, lo resuelve.” – Javi, 2025
-
----
-
-
+    “El que escribe el merge conflict, lo resuelve.” – Javi, 2025
